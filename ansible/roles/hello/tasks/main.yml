@@ -1,0 +1,13 @@
+---
+# tasks file for hello
+- name: Run hello web server
+  community.general.docker_container:
+    name: '{{ hello_docker_name }}'
+    image: nginxdemos/hello
+    detach: true
+    restart_policy: unless-stopped
+    container_default_behavior: no_defaults
+    env:
+      VIRTUAL_HOST: '{{ hello_domain }}'
+      LETSENCRYPT_HOST: '{{ hello_domain }}'
+    

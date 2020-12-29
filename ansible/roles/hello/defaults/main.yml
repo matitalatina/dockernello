@@ -1,0 +1,4 @@
+---
+# defaults file for hello
+hello_docker_name: hello
+hello_domain: hello.domain.com

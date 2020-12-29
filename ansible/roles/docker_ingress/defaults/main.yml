@@ -1,0 +1,7 @@
+---
+# defaults file for ingress
+admin_email: email@example.com
+
+nginx_proxy_docker_name: nginx-proxy
+
+nginx_proxy_companion_docker_name: nginx-proxy-letsencrypt

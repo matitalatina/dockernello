@@ -1,0 +1,8 @@
+- hosts: agents
+  become: yes
+  vars:
+    admin_email: me@mattianatali.it
+    hello_domain: hello.d.mattianatali.com
+  roles:
+    - docker_ingress
+    - hello

@@ -1,0 +1,30 @@
+---
+- name: Run nginx-proxy
+  community.general.docker_container:
+    name: '{{ nginx_proxy_docker_name }}'
+    image: jwilder/nginx-proxy
+    detach: true
+    restart_policy: unless-stopped
+    container_default_behavior: no_defaults
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - /etc/nginx/certs
+      - /etc/nginx/vhost.d
+      - /usr/share/nginx/html
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+- name: Run nginx-proxy-companion
+  community.general.docker_container:
+    name: '{{ nginx_proxy_companion_docker_name }}'
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    detach: true
+    restart_policy: unless-stopped
+    container_default_behavior: no_defaults
+    env:
+      DEFAULT_EMAIL: '{{ admin_email }}'
+    volumes_from:
+      - '{{ nginx_proxy_docker_name }}'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /etc/acme.sh
