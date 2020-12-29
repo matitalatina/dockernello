@@ -12,7 +12,7 @@ Role Variables
 Dependencies
 ------------
 
-- (Ansible Role: Docker)[https://github.com/geerlingguy/ansible-role-docker]
+- [Ansible Role: Docker](https://github.com/geerlingguy/ansible-role-docker)
 - Docker Ingress Role: it's defined in this repo.
 
 Example Playbook

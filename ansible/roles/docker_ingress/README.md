@@ -14,7 +14,7 @@ Role Variables
 Dependencies
 ------------
 
-- (Ansible Role: Docker)[https://github.com/geerlingguy/ansible-role-docker]
+- [Ansible Role: Docker](https://github.com/geerlingguy/ansible-role-docker)
 - `ansible-galaxy collection install community.general`
 
 Example Playbook
